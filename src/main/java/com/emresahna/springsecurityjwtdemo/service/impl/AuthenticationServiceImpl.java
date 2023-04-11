@@ -62,8 +62,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     @Override
-    public UserResponse refreshToken(RenewAccessTokenRequest renewAccessTokenRequest) {
-        final String refreshToken = renewAccessTokenRequest.getRefreshToken();
+    public UserResponse refreshToken(String refreshToken) {
         final String username = jwtTokenService.findUsernameByToken(refreshToken);
 
         if (username == null) {
